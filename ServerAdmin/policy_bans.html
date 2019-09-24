@@ -1,0 +1,85 @@
+<!-- #include file="header.inc" -->
+
+<div id="content">
+
+<h2><%page.title%></h2>
+
+<div class="section narrow">
+<table class="grid" id="bannedIds">
+<thead>
+<tr>
+    <!--<th>Player name</th>-->
+    <th>Unique Net ID</th>
+    <th>Steam ID</th>
+    <th title="The Steam community ID. Can be '[unknown]' when the unique ID could not be resolved to the correct Steam ID.">Community ID</th>
+    <!--<th>Timestamp</th>-->
+    <th></th>
+</tr>
+</thead>
+<tbody>
+<%bans%>
+</tbody>
+</table>
+
+<form method="post" action="<%page.fulluri%>+export">
+<p><button type="submit" title="Export the current bans to a JSON file.">Export</button></p>
+</form>
+</div>
+
+<form method="post" action="<%page.fulluri%>">
+<fieldset id="addban">
+<legend>Add a new ban</legend>
+<div class="section">
+<input type="hidden" name="action" value="add" />
+<table>
+<tr>
+  <td>
+    <dl>
+      <dt><label for="steamint64" title="The numeric Steam ID.">Steam ID</label></dt>
+      <dd><input type="text" name="steamint64" id="steamint64" class="monospace" /></dd>
+    </dl>
+  </td>  
+  <td><dl><dt>&nbsp;&nbsp;or&nbsp;&nbsp;</dt></dl></td>
+  <td>
+    <dl>
+      <dt><label for="uniqueid">Unique Net ID</label></dt>
+      <dd><input type="text" name="uniqueid" id="uniqueid" class="monospace" /></dd>
+    </dl>
+  </td>
+</tr>
+</table>
+<dl>
+    <dd><button type="submit">Add ban</button></dd>
+</dl>
+</div>
+</fieldset>
+</form>
+
+<form method="post" action="<%page.fulluri%>+import">
+<fieldset id="importbans">
+<legend>Import Bans</legend>
+<div class="section">
+<input type="hidden" name="action" value="import" />
+<dl>
+    <dt><label for="importurl">URL</label></dt>
+    <dd><input type="text" name="importurl" id="importurl" class="monospace" size="80" /></dd>
+    <dd><button type="submit">Import</button></dd>
+</dl>
+</div>
+</fieldset>
+</form>
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+  if ($("#bannedIds td").size() <= 1) return;
+  $("#bannedIds th").wrapInner("<span></span>");
+  $("#bannedIds").tablesorter({sortList:[[1,0]], headers: { 3: {sorter: false} }});
+});
+//]]>
+</script>
+
+<!-- #include file="navigation.inc" -->
+<!-- #include file="footer.inc" -->

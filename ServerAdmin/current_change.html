@@ -1,0 +1,63 @@
+<!-- #include file="header.inc" -->
+
+<div id="content">
+
+<form method="post" action="<%page.fulluri%>">
+
+<fieldset>
+<legend>Game and map</legend>
+<div class="section">
+<dl>
+    <dt><label for="gametype">Game type</label></dt>
+    <dd>
+        <select id="gametype" name="gametype">
+        <%gametypes%>
+        </select>
+        <button type="submit" name="action" value="update" id="btnupdate">update maps and mutators</button>
+    </dd>
+    <dt><label for="map">Map</label></dt>
+    <dd>
+        <select id="map" name="map">
+        <%maps%>
+        </select>
+    </dd>
+</dl>
+</div>
+</fieldset>
+
+<fieldset id="mutators">
+<legend>Mutators</legend>
+<div class="section">
+<%mutators%>
+<input type="hidden" name="mutatorGroupCount" value="<%mutator.groups%>" />
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Miscellaneous</legend>
+<div class="section">
+<dl>
+    <dt><label for="urlextra">Additional URL variables</label></dt>
+    <dd>
+        <input type="text" id="urlextra" name="urlextra" size="80" value="<%urlextra%>" /><br />
+        <p>Here you can add any other arguments to be placed on the game change URL. It will be added after the gametype and mutator elements.</p>
+        <p>The following variables are not allowed: <%urlextra.deny%></p>
+    </dd>
+</dl>
+</div>
+</fieldset>
+
+<div><button type="submit" name="action" value="change" id="btnchange">Change game</button></div>
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+var pageUri = '<%page.fulluri%>';
+//]]>
+</script>
+<script type="text/javascript" src="/images/current_change.js?gzip"></script>
+
+</div>
+
+<!-- #include file="navigation.inc" -->
+<!-- #include file="footer.inc" -->

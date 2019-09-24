@@ -1,0 +1,89 @@
+<!-- #include file="header.inc" -->
+
+<div id="content">
+
+<form method="post" action="<%page.fulluri%>">
+<fieldset>
+<legend><%page.title%> Settings</legend>
+
+<div id="WelcomePageSettings">
+
+<div title="Banner image" id="secBanner">
+    <label for="BannerLink">Banner Link:</label>
+    <input type="text" id="BannerLink" name="BannerLink" value="<%BannerLink%>" size="60" /> <br />
+    <img src="<%BannerLink%>" id="BannerLinkImg" alt="Banner shown on the welcome page." /> 
+</div>
+
+<div title="Clan motto" id="secMotto">
+    <label for="ClanMotto">Clan Motto:</label>
+    <textarea name="ClanMotto" id="ClanMotto" rows="6" cols="60" style="color: <%ClanMottoColor%>;"><%ClanMotto%></textarea>
+    <label for="ClanMottoColor">Clan Motto Color</label>
+    <input type="text" id="ClanMottoColor" name="ClanMottoColor" value="<%ClanMottoColor%>" class="colorSetting"  size="7" />
+</div>
+
+<div title="Message of the day" id="secMotd">
+    <label for="ServerMOTD">MOTD:</label>
+    <textarea name="ServerMOTD" id="ServerMOTD" rows="6" cols="60" style="color: <%ServerMOTDColor%>;"><%ServerMOTD%></textarea>
+    <label for="ServerMOTDColor">MOTD Color:</label>
+    <input type="text" id="ServerMOTDColor" name="ServerMOTDColor" value="<%ServerMOTDColor%>" class="colorSetting"  size="7" />
+</div>
+
+<div title="Web link" id="secWebLink">
+    <label for="WebLink">Web Link:</label>
+    <input type="text" id="WebLink" name="WebLink" value="<%WebLink%>"  style="color: <%WebLinkColor%>;"  size="60" />
+    <label for="WebLinkColor">Link Color:</label>
+    <input type="text" id="WebLinkColor" name="WebLinkColor" value="<%WebLinkColor%>" class="colorSetting"  size="7" />
+</div>
+
+</div>
+
+
+<input type="hidden" name="liveAdjust" value="1" id="liveAdjust" />
+
+<button type="submit" name="action" value="save" id="btnsave">save settings</button>
+</fieldset>
+</form>
+
+</div>
+
+<script type="text/javascript">
+// <![CDATA[
+
+$(document).ready(function() {
+    $('#BannerLink').change(function() {
+        $('#BannerLinkImg').attr('src', $('#BannerLink').val());
+    });
+    $('input.colorSetting').change(function() {
+        var id = this.id.replace(/(Color)$/, "");
+        $('#'+id).css('color', $(this).val());
+    });
+    $('input.colorSetting').hide();
+    $('input.colorSetting').each(function(idx, elm) {
+        var jelm = $(elm);
+        var selBtn = $('<div class="colorSelector"><div></div></div>');
+        jelm.before(selBtn);
+        var selBtnBg = $('div', selBtn);
+        selBtnBg.css('backgroundColor', jelm.val());
+        selBtn.ColorPicker({
+            onBeforeShow: function() {
+                selBtn.ColorPickerSetColor(jelm.val());
+            },
+            onChange: function (hsb, hex, rgb) {
+                jelm.val('#'+hex);
+                jelm.change();
+                selBtnBg.css('backgroundColor', jelm.val());
+            },
+            onSubmit: function(hsb, hex, rgb, el) {
+                jelm.val('#'+hex);
+                jelm.change();
+                selBtn.ColorPickerHide();
+            }
+        });
+    });
+});
+
+// ]]>
+</script>
+
+<!-- #include file="navigation.inc" -->
+<!-- #include file="footer.inc" -->

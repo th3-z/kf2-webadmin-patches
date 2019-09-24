@@ -1,0 +1,48 @@
+<!-- #include file="header.inc" -->
+<div id="content">
+<form id="loginform" method="post" action="<%page.fulluri%>" autocomplete="off">
+<fieldset>
+<legend>Login</legend>
+<div class="section">
+<input type="hidden" name="token" value="<%token%>" />
+<input type="hidden" id="password_hash" name="password_hash" value="" />
+<dl>
+	<dt><label for="username">Username</label></dt>
+	<dd><input type="text" id="username" name="username" value="" /></dd>
+	<dt><label for="password">Password</label></dt>
+	<dd><input type="password" id="password" name="password" value="" /></dd>
+	<dt><label for="remember" title="Duration of inactivity before you need to log in again.">Remember</label></dt>
+	<dd><select name="remember">
+        <option value="0">Until next map load</option>
+        <option value="-1" selected="selected">Browser session</option>
+        <!-- Number of seconds -->
+        <option value="1800">30 minutes</option>
+        <option value="3600">1 hour</option>
+        <option value="86400">1 day</option>
+        <option value="604800">1 week</option>
+        <option value="2678400">1 month</option>
+    </select></dd>
+	<dd><button type="submit">login</button></dd>
+</dl>
+</div>
+</fieldset>
+</form>
+</div>
+<script type="text/javascript" src="/images/sha1.js?gzip"></script>
+<script type="text/javascript">
+// <![CDATA[
+var hashAlg = "<%hashalg%>";
+$(document).ready(function(){
+    if (hashAlg != "sha1") {
+        return;
+    }
+    $('#loginform').submit(function(){
+        var hashme = $('#password').val()+$('#username').val();
+        $('#password_hash').val("$sha1$"+hex_sha1(hashme));
+        $('#password').val("");
+        return true;
+    });
+});
+// ]]>
+</script>
+<!-- #include file="footer.inc" -->

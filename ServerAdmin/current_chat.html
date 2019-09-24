@@ -1,0 +1,30 @@
+<!-- #include file="header.inc" -->
+
+<div id="content">
+
+<h2><%page.title%></h2>
+
+<div id="chatlog">
+<%chat.log%>
+<div id="refresh"><a href="<%page.fulluri%>?rnd=<%random%>#chatlog">Update...</a></div>
+</div>
+
+<div id="chat">
+<form id="chatform" action="<%page.fulluri%>#chatlog" method="post">
+<p><input type="hidden" name="rnd" value="<%random%>" /><input type="text" id="chatmessage" name="message" value="" size="80" autocomplete="off" /><button type="submit">say</button></p>
+<div id="teamsayctrl"><%teamsaycontrols%></div>
+</form>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var chatRefresh = <%chat.refresh%>;
+var pageUri = '<%page.fulluri%>'; 
+//]]>
+</script>
+<script type="text/javascript" src="/images/current_chat.js?gzip"></script>
+
+</div>
+
+<!-- #include file="navigation.inc" -->
+<!-- #include file="footer.inc" -->
