@@ -1,3 +1,7 @@
+<dt>Wave</dt>
+<dd><%wave.num%>/<%wave.max%></dd>
+<dt>Difficulty</dt>
+<dd><%rules.difficulty.text%></dd>
 <dt>Players</dt>
 <dd><%rules.numplayers%>/<%rules.maxplayers%></dd>
 <dt>Minimum to Start</dt>
