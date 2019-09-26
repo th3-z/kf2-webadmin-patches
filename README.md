@@ -1,7 +1,10 @@
-# kf2-webadmin-patches
-Generates patches for kf2-magicked-administrator and other admin panel modifications.
+# KF2 Web Admin Patches
+Generates KF2 Server patches for KF2 Magicked Admin and other popular admin panel modifications.
 
 ## Features
+
+The main purpose of this is to add support for KF2 Magicked Admin in Endless/Weekly 
+game modes. It also adds the following to KF2 Server's web admin panel.
 
 * Wave counter in Endless mode's game ticker
 * Wave counter in Endless mode's rule list
