@@ -20,7 +20,7 @@ Running `gen-patches.sh` will compare the first commit in this repo with the las
 and generate patches that apply the difference for the files in `ServerAdmin`. The 
 patches are output be output in a `patches` folder.
 
-The generated patches can be copied into KF2 Magicked Admin's `admin-patcher/patches ` 
+The generated patches can be copied into KF2 Magicked Admin's `admin-patcher/patches` 
 folder to apply them with the admin-patcher or applied manually with `git am`.
 
 ## License
