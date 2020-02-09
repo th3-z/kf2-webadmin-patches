@@ -39,7 +39,7 @@ $(document).ready(function(){
     });
     $("#players th").wrapInner("<span></span>");
     $("#players").tablesorter({sortList:[[1,0]], widgets: ['zebra'], headers: { 9: {sorter: false} }});
-    
+
     $("#players form").each(function(i){
         var frm = $(this);
         frm.submit(function() {
