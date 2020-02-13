@@ -1,7 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-	<!-- KF2-MA-INSTALLED-FLAG -->
 	<title>Killing Floor 2 WebAdmin - <%page.title%></title>
 	<link rel="stylesheet" type="text/css" href="/images/kf2.css?gzip" />
 	<link rel="stylesheet" type="text/css" href="/images/kf2modern.css?gzip" />
