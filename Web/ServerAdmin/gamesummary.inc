@@ -4,6 +4,6 @@
   <dd class="gs_map"><%map.title.safe%></dd>
   <dt class="gs_players">Players</dt>
   <dd class="gs_players"><%rules.numplayers%>/<%rules.maxplayers%></dd>
-  <dt class="gs_wave">Wave <%wave.num%>/<%wave.max%></dt>
-  <dd class="gs_wave"><%wave.monsters.dead%>/<%wave.monsters.total%></dd>
+  <dt class="gs_time">Time</dt>
+  <dd class="gs_time"><%time.elapsed%>/<%time.timelimit%></dd>
 </dl>
