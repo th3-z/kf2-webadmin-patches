@@ -1,2 +1,6 @@
 # Output
 patches/*
+
+# Editors
+*-swp
+*.sqp
