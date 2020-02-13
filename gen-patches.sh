@@ -2,6 +2,7 @@
 
 SEED_COMMIT=14cfe14c5f56304701eadfe7a0319c47cf60d3aa
 
+rm -rf ./patches
 mkdir -p ./patches/Web/ServerAdmin
 mkdir -p ./patches/Web/images
 
