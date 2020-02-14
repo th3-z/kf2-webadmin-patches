@@ -5,10 +5,15 @@ Generates KF2 Server patches for KF2 Magicked Admin and other popular admin pane
 
 The main purpose of this is to add support for KF2 Magicked Admin in all other game modes other than Survival ( like Endless, Weekly, Zedternal, ect... ). It also adds the following to KF2 Server's web admin panel.
 
-* Wave counter in Endless mode's game ticker
+* Wave counter AND Time in Endless mode's game ticker
 * Wave counter in Endless mode's rule list
 * Difficulty in Endless mode's rule list
 * Allows to see the level of players in "Server Info" and "Players"
+* Fast navigation buttons to any other server (configure this by modifying the file "header_fastnav.inc" found in /KFGame/Web/ServerAdmin)
+* The update of gamesummary goes from 30 seconds to 1 second
+* Possibility to click on a player's Steam ID to access their steam profile in "Players"
+* Addition of a tooltip for each column in "Players"
+* Allows you to modify and apply the changes made to the .css files in the folder /images
 
 ## Requirements
 
