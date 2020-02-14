@@ -1,0 +1,62 @@
+<!-- #include file="header.inc" -->
+
+<div id="content">
+
+<form id="maplistselect" method="post" action="<%page.fulluri%>">
+<fieldset>
+<legend>Map list selection</legend>
+    <select id="maplistidx" name="maplistidx">
+    <option value="-1" class="em">Create new map cycle</option>
+    <%maplists%>
+    </select>
+    <button type="submit" id="btnselect">edit map cycle</button>
+</fieldset>
+</form>
+
+<form method="post" action="<%page.fulluri%>" id="maplistform">
+<fieldset>
+<legend>Editing <em><%editmaplist.friendlyname%></em></legend>
+<input type="hidden" name="maplistidx" value="<%maplistidx%>" />
+<!--
+#if !__TW_
+This won't and can't work since it relies on map filename prefix and Survival
+and Versus modes both use the same map files with the same prefix. Removing
+it to prevent confusion until we figure out a way to make it work.
+<div>
+    <label for="gametype">Gametype</label>
+    <select id="gametype" name="gametype">
+    <option value=""></option>
+    <%gametypes%>
+    </select>
+    <button type="submit" id="btnselectgt">show available maps</button>
+</div>
+-->
+<%maplist_editor%>
+
+<div id="mlactions">
+<button type="submit" name="action" value="save">save map cycle</button>
+<button type="submit" name="delete" value="doit" <%mldeletable%> >delete</button>
+<button type="submit" name="activate" value="activate" <%mlactive%> >make active</button>
+</div>
+</fieldset>
+</form>
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+$(document).ready(function(){
+    $('#gametype').change(function(){
+        $('#maplistform').submit();
+    });
+     $('#maplistidx').change(function(){
+        $('#maplistselect').submit();
+    });
+});
+    
+//]]>
+</script>
+
+<!-- #include file="navigation.inc" -->
+<!-- #include file="footer.inc" -->

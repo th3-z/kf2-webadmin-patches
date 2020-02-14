@@ -1,0 +1,20 @@
+<!-- #include file="header.inc" -->
+
+<div id="content">
+
+<form method="post" action="<%page.fulluri%>">
+<fieldset>
+<legend><%page.title%> Settings</legend>
+
+<%settings%>
+
+<div <%liveAdjustStyle%> ><p><input type="checkbox" name="liveAdjust" value="1" id="liveAdjust" <%liveAdjustChecked%> />
+<label for="liveAdjust" title="When checked, changes are applied directly to the current game. This could influence the rules of the game.">Save changes directly to the current game instance.</label></p></div>
+<button type="submit" name="action" value="save" id="btnsave">save settings</button>
+</fieldset>
+</form>
+
+</div>
+
+<!-- #include file="navigation.inc" -->
+<!-- #include file="footer.inc" -->

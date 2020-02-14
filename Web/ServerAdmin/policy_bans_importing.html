@@ -1,0 +1,38 @@
+<!-- #include file="header.inc" -->
+
+<div id="content">
+
+<h2>Importing bans</h2>
+
+<div class="section">
+<p>Importing bans from: <code><%importer.url%></code></p>
+
+<div id="pleaseWaitMessage">
+<p>This page will refresh every few seconds to update the import status.</p>
+<p>Current status: <%importer.statusMessage%>...</p>
+</div>
+
+<p id="returnToBans"><a href="bans">Return to bans.</a></p>
+</div>
+
+
+<script type="text/javascript">
+var status = "<%importer.status%>";
+
+function refreshPage() {
+  window.location = '<%page.fulluri%>?rnd='+(new Date()).getTime();
+}
+
+$(document).ready(function() {
+  if (status == "IS_DONE" || status == "IS_ERROR") {
+    $('#pleaseWaitMessage').hide();
+  }
+  else {
+    $('#returnToBans').hide();
+    setTimeout(refreshPage, 2000);
+  }
+});
+</script>
+
+<!-- #include file="navigation.inc" -->
+<!-- #include file="footer.inc" -->

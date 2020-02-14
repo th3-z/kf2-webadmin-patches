@@ -1,0 +1,143 @@
+/* override for modern browsers */
+
+#content {
+	background-color: transparent;
+	border: 13px solid transparent;
+	-webkit-border-image: url(border-content.png) 13 13 stretch;
+	-webkit-border-image-slice: 13 fill;
+	border-image: url(border-content.png) 13 13 stretch;
+	border-image-slice: 13 fill;
+	padding: 5px;
+}
+
+body.chatframe #content {
+	margin-left: 0;
+	padding: 0;
+	border-bottom-width: 5px;
+	-webkit-border-image-slice: 13 13 5 13 fill;
+	border-image-slice: 13 13 5 13 fill;
+}
+
+legend, #content h2, #content h3, #chatwindow h2 {
+	padding: 0;
+	background: transparent;
+	border: 1px solid transparent;
+	border-width: 0px 0px 1px 15px;
+	-webkit-border-image: url(border-heading.png) 13 1 stretch;
+	-webkit-border-image-slice: 0 0 1 15 fill;
+	border-image: url(border-heading.png) 13 1 stretch;
+	border-image-slice: 0 0 1 15 fill;
+}
+
+#chatwindow h2 {
+	border-width: 0px 4px 1px 15px;
+}
+
+button, input.button {
+	background: transparent;
+	border: 1px solid transparent;
+	border-width: 1px 11px 1px 11px;
+	-webkit-border-image: url(border-button.png) 11 1 stretch;
+	-webkit-border-image-slice: 1 11 1 11 fill;
+	border-image: url(border-button.png) 11 1 stretch;
+	border-image-slice: 1 11 1 11 fill;
+}
+
+button:hover, input.button:hover {
+	background: transparent;
+	border-image-source: url(border-button-active.png);
+}
+
+button[disabled="disabled"], button[disabled="disabled"]:hover {
+	background: transparent;
+	border-image-source: url(border-button-disabled.png);
+}
+
+#gamesummary-details {
+	background-color: transparent;
+	border: 4px solid transparent;
+	-webkit-border-image: url(border-gamesum.png) 4 4 stretch;
+	-webkit-border-image-slice: 4 fill;
+	border-image: url(border-gamesum.png) 4 4 stretch;
+	border-image-slice: 4 fill;
+	padding: 6px;
+	padding-left: 116px;
+}
+
+:focus {
+  outline-color: #a5181a;
+  /*outline-style: none;*/
+}
+
+/* some nonstandard scroll bar styling */
+
+/* IE */
+html {
+	scrollbar-arrow-color: #a5181a;
+	scrollbar-base-color: #3d1112;
+	scrollbar-track-color: #290c0d;
+	scrollbar-face-color: #3d1112;
+	scrollbar-highlight-color: #a5181a;
+}
+
+/* webkit */
+::-webkit-scrollbar {
+	width: 15px;
+	height: 15px;
+}
+
+::-webkit-scrollbar-corner {
+	background: #290c0d;
+}
+
+::-webkit-scrollbar-track {
+	background: #290c0d;
+}
+
+
+::-webkit-scrollbar-button {
+	background-color: #290c0d;
+	background-repeat: no-repeat;
+	background-position: center;
+	border: 1px solid #290c0d;
+}
+
+::-webkit-scrollbar-button:vertical:decrement  {
+	background-image: url(btn_up.png);
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+	background-image: url(btn_down.png);
+}
+
+::-webkit-scrollbar-button:horizontal:decrement  {
+	background-image: url(btn_left.png);
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+	background-image: url(btn_right.png);
+}
+
+::-webkit-scrollbar-button:hover {
+	background-color: #3d1112;
+	border: 1px solid #3d1112;
+	border-width: 4px 4px;
+	border-image: url(border-button-sqr.png) 4 4 stretch;
+}
+
+
+::-webkit-scrollbar-thumb {
+	background: #3d1112;
+	border: 1px solid #441314;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	border: 1px solid #a5181a;
+	border-width: 4px 4px;
+	border-image: url(border-button-sqr.png) 4 4 stretch;
+}
+
+::-webkit-resizer {
+	background: url(resize.png) bottom right no-repeat;
+	width: 15px;
+}

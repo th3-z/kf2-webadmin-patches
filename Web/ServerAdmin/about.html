@@ -1,0 +1,49 @@
+<!-- #include file="header.inc" -->
+
+<div id="content">
+
+<h2>About</h2>
+
+<h3>Engine Information</h3>
+
+<dl>
+    <dt>Engine Version</dt>
+    <dd><%engine.version%></dd>
+    <dt>Minimum Network Version</dt>
+    <dd><%engine.netversion%></dd>
+    <dt>WebAdmin Address</dt>
+    <dd><%webadmin.address%></dd>
+    <dt>Authentication Method</dt>
+    <dd><%webadmin.authmethod%></dd>
+    <dt>NAT Type</dt>
+    <dd><%engine.nattype%></dd>            
+</dl>
+
+<h3>Server Owner Information</h3>
+
+<dl>
+    <dt>Logged-in Status</dt>
+    <dd><%player.status%></dd>
+    <dt>Unique ID</dt>
+    <dd><%player.uniqueid%></dd>
+    <dt>Steam ID</dt>
+    <dd><%player.steamid%></dd>
+</dl>  
+    
+<h3>User Information</h3>
+
+<dl>
+    <dt>Admin Username</dt>
+    <dd><%admin.name%></dd>
+    <dt>Remote Address</dt>
+    <dd><%client.address%></dd>
+    <dt>IP during authentication</dt>
+    <dd><%client.authip%></dd>
+    <dt>User Agent</dt>
+    <dd><%client.useragent%></dd>       
+</dl>
+
+</div>
+
+<!-- #include file="navigation.inc" -->
+<!-- #include file="footer.inc" -->

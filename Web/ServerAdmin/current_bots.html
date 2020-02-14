@@ -1,0 +1,75 @@
+<!-- #include file="header.inc" -->
+
+<div id="content">
+
+<fieldset>
+<legend>Add Bots</legend>
+<form method="post" action="<%page.fulluri%>" id="addbotsform">
+<div>
+<input type="hidden" name="action" value="addbots" />
+<input type="text" id="numbots" name="numbots" value="1" title="Minimum: 0; Maximum: 64" size="2" />
+<button type="submit">add</button>
+<%teamcontrols%>
+</div>
+</form>
+</fieldset>
+
+<fieldset>
+<legend>Active bots</legend>
+<form method="post" action="<%page.fulluri%>" id="removebotsform">
+<input type="hidden" name="action" value="killbots" />
+<table id="bots" class="grid">
+<thead>
+<tr>
+    <th>&#160;</th>
+    <th>&#160;</th>
+    <th><a href="<%page.fulluri%>?sortby=name&amp;reverse=<%reverse.name%>" class="sortable <%sorted.name%>">Player name</a></th>
+    <th><a href="<%page.fulluri%>?sortby=role&amp;reverse=<%reverse.ranking%>" class="sortable <%sorted.role%>">Role</a></th>
+    <th><a href="<%page.fulluri%>?sortby=score&amp;reverse=<%reverse.score%>" class="sortable <%sorted.score%>">Score</a></th>
+    <th><a href="<%page.fulluri%>?sortby=deaths&amp;reverse=<%reverse.deaths%>" class="sortable <%sorted.deaths%>">Deaths</a></th>
+    <th><a href="<%page.fulluri%>?sortby=kills&amp;reverse=<%reverse.kills%>" class="sortable <%sorted.kills%>">Kills</a></th>
+</tr>
+</thead>
+<tbody>
+<%bots%>
+</tbody>
+<tfoot>
+    <td><input type="checkbox" id="selectAllBots" /></td>
+    <td colspan="6"><label for="selectAllBots">(de)select all</label></td>
+</tfoot>
+</table>
+<button type="submit">remove selected bots</button>
+</form>
+</fieldset>
+
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+     // bug in sortedtable causes a javascript error when the table is empty.
+    if ($("#bots tbody td").size() > 1) {
+        $("#bots th a").each(function(){
+            jthis = $(this);
+            jthis.before(jthis.html());
+            jthis.remove();
+        });
+        $("#bots th").wrapInner("<span></span>");
+        $("#bots").tablesorter({sortList:[[4,1]], widgets: ['zebra']});
+        
+        var deselFunc = function() {
+            $("#removebotsform input[type='checkbox']").attr('checked', $("#selectAllBots").attr('checked'));
+        };
+        if ($.browser.msie) {
+            $("#selectAllBots").click(deselFunc);
+        }
+        else {
+            $("#selectAllBots").change(deselFunc);
+        }
+    }
+});
+//]]>
+</script>
+
+<!-- #include file="navigation.inc" -->
+<!-- #include file="footer.inc" -->
