@@ -10,18 +10,13 @@ The main purpose of this is to add support for KF2 Magicked Admin in all other g
 * Difficulty in Endless mode's rule list
 * Allows to see the level of players in "Server Info" and "Players"
 
-## Requirements
-
-* Git
-
 ## Usage
 
-Running `gen-patches.sh` will compare the first commit in this repo with the last
-and generate patches that apply the difference for the files in `ServerAdmin`. The
+Running `gen-patches.sh` will generate patches that apply the difference for the files in `ServerAdmin`. The
 patches are output be output in a `patches` folder.
 
 The generated patches can be copied into KF2 Magicked Admin's `admin-patcher/patches`
-folder to apply them with the admin-patcher or applied manually with `git am`.
+folder to apply them with the admin-patcher or applied manually with `patch`.
 
 ## License
 
